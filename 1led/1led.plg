@@ -7,3 +7,8 @@ D:\code\scm_8051\1led\1led.uvproj
 Project File Date:  09/21/2012
 
 <h2>Output:</h2>
+Build target 'Target 1'
+compiling 1led.c...
+linking...
+Program Size: data=9.0 xdata=0 code=67
+"1led" - 0 Error(s), 0 Warning(s).

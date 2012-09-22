@@ -9,3 +9,8 @@
 
 # Executable files
 *.EXE
+*.uvopt
+*.bak
+*.PWI
+*.M51
+*.lnp
