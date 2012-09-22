@@ -43,7 +43,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\</OutputDirectory>
-          <OutputName>4ad_led_r_l</OutputName>
+          <OutputName>5ad_led_r_l_table</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -347,9 +347,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>4ad_led_r_l.c</FileName>
+              <FileName>5ad_led_r_l_table.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\4ad_led_r_l.c</FilePath>
+              <FilePath>.\5ad_led_r_l_table.c</FilePath>
             </File>
           </Files>
         </Group>
