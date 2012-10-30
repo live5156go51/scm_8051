@@ -1,0 +1,71 @@
+		ORG		0000H
+		AJMP	MAIN
+		ORG		0003H;------------------
+		AJMP	INTT0
+		ORG		0013H
+		AJMP	INTT1
+		ORG		0030H
+MAIN:	
+		MOV		60H,#00H
+		MOV		61H,#02H
+		MOV		62H,#03H
+		MOV		63H,#04H
+		MOV		64H,#05H
+		MOV		65H,#0AH
+		MOV		66H,#07H
+		MOV		67H,#09H
+		SETB	EA
+		SETB	EX0
+		SETB	IT0
+		SETB	EX1
+		SETB	IT1
+		MOV		R3,#00H
+;-------------------------
+LOOP:	ACALL	DISPLAY
+		SJMP	LOOP
+
+INTT0:	INC		R3
+		CJNE	R3,#10,EXIT0
+		MOV		R3,#00H
+EXIT0:	MOV		67H,R3
+		RETI
+
+INTT1:	DEC		R3
+		CJNE	R3,#0FFH,EXIT1
+		MOV		R3,#09H
+EXIT1:	MOV		67H,R3
+		RETI
+
+
+
+display:MOV		R7,#8
+		MOV		R0,#60H
+		MOV		R6,#01H
+		MOV		DPTR,#TAB
+
+LOOP3:	MOV		A,@R0	
+		MOVC	A,@A+DPTR
+		MOV		P2,A
+		MOV		P1,R6		
+		ACALL	DELAY
+		MOV		A,R6
+		RL		A
+		MOV		R6,A
+		MOV		P1,R6
+		INC		R0
+		DJNZ	R7,LOOP3
+		RET
+
+;—” ±--------------------------------
+DELAY:	MOV		B,#1
+DP1:	MOV		R4,#0FH
+DP2:	MOV		R5,#100
+		DJNZ	R5,$
+		DJNZ	R4,DP2
+		DJNZ	B,DP1
+		RET
+
+		ORG		0100H
+TAB:	DB		0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90
+		DB		0x88,0x83,0xC6,0xA7,0xA1,0x86,0xBF,0FFH
+		END
